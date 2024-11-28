@@ -1,0 +1,256 @@
+/* reset css */
+
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* styles */
+body {
+  background-color: #e7d4f4;
+  overflow: hidden; /* Para que las animaciones no generen scroll */
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-letter {
+  position: relative;
+}
+
+.cover {
+  position: absolute;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 100px solid #7d3c98; /* Morado oscuro */
+  border-bottom: 100px solid transparent;
+  transition: transform 0.75s;
+  transform-origin: top;
+}
+
+.paper {
+  position: absolute;
+  padding: 1.5rem;
+  line-height: 2rem;
+  right: 5px;
+  z-index: -1;
+  background: #f5e6fc; /* Morado claro */
+  width: 390px;
+  height: 180px;
+  transition: all 0.75s;
+}
+
+.letter {
+  border-left: 200px solid #af7ac5; /* Morado medio */
+  border-right: 200px solid #af7ac5; /* Morado medio */
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid #d2b4de; /* Morado pastel */
+}
+
+.options {
+  display: flex;
+  gap: 5rem;
+}
+
+/* Estilo para los botones (Abrir y Cerrar) */
+.options button {
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  background: #e7d4f4; /* Fondo claro */
+  padding: 0.5rem 1rem;
+  border: 1px solid #7d3c98; /* Borde morado oscuro */
+  cursor: pointer;
+}
+
+.options button:hover {
+  background: #af7ac5; /* Cambia a un tono más oscuro al pasar el mouse */
+  color: white;
+}
+
+.open-cover {
+  transform: rotatex(180deg);
+}
+
+.open-paper {
+  animation: openPaper 0.75s forwards;
+}
+
+@keyframes openPaper {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -120px;
+  }
+}
+
+.close-paper {
+  animation: closePaper 0.75s forwards;
+}
+
+@keyframes closePaper {
+  0% {
+    top: -120px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.heart {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 46.5%;
+  margin: auto;
+  font-size: 3rem;
+  color: #7d3c98; /* Morado oscuro para el corazón */
+  animation: crecer 1s forwards;
+}
+
+@keyframes crecer {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 3;
+    opacity: 0;
+  }
+}
+
+/* Corazones animados */
+.animated-hearts {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Evita que interfiera con clics */
+}
+
+.animated-hearts span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #af7ac5;
+  clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
+  animation: float 4s infinite ease-in-out;
+}
+
+.animated-hearts span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.animated-hearts span:nth-child(2) {
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.animated-hearts span:nth-child(3) {
+  left: 80%;
+  animation-delay: 2s;
+}
+
+.animated-hearts span:nth-child(4) {
+  left: 90%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Estilos para el texto "tqm bbsita" con comillas */
+.signature {
+  display: block;
+  text-align: center; /* Centra el texto */
+  margin-top: -1rem; /* Mueve ligeramente más arriba */
+  font-weight: bold; /* Asegura que "tqm bbsita" esté en negritas */
+  margin-bottom: 0; /* Elimina la separación entre este y el siguiente texto */
+}
+
+#mainMessage {
+  font-style: italic;
+}
+
+#mainMessage .signature::before {
+  content: '"'; /* Agrega la comilla antes */
+}
+
+#mainMessage .signature::after {
+  content: '"'; /* Agrega la comilla después */
+}
+
+/* Botón "La más linda" */
+.heart-button-container {
+  margin-top: 20px;
+}
+
+.heart-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #7d3c98;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.heart-button:hover {
+  color: #ff69b4; /* Cambia el color cuando pasa el mouse */
+}
+
+.heart-button:focus {
+  outline: none;
+}
+
